@@ -17,8 +17,7 @@ class Task(object):
 
     def t3(self):
         ct = pd.crosstab(self.df["save_act"], self.df["mortgage"], margins=True)
-        # Convert each row to % of that row's total (the "All" column)
-        return ct.apply(lambda row: (row / row["All"]) * 100, axis=1)
+        return ct.apply(lambda col: (col / col["All"]) * 100)
 
 if __name__ == "__main__":
     t = Task()
